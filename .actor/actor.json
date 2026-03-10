@@ -1,0 +1,108 @@
+{
+  "actorSpecification": 1,
+  "name": "OrgUpdate",
+  "title": "OrgUpdate",
+  "version": "1.0.0",
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Output schema of the Dice Jobs Scraper",
+    "properties": {
+      "jobTitle": {
+        "title": "Job Title",
+        "type": "string",
+        "description": "The title of the job posting.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+      },
+      "companyName": {
+        "title": "Company Name",
+        "type": "string",
+        "description": "The name of the company.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "location": {
+        "title": "Job Location",
+        "type": "string",
+        "description": "The location of the job posting.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "postedDate": {
+        "title": "Posted Date",
+        "type": "string",
+        "description": "Date when the job was posted.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "jobUrl": {
+        "title": "Job URL",
+        "type": "string",
+        "description": "Direct link to the job listing.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+
+      },
+      "description": {
+        "title": "Job Description",
+        "type": "string",
+        "description": "The full job description.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "job_title",
+              "company_name",
+              "location",
+              "posted_via",
+              "salary",
+              "date",
+              "URL"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "job_title": {
+                "label": "Job Title",
+                "format": "text"
+              },
+              "company_name": {
+                "label": "Company",
+                "format": "text"
+              },
+              "location": {
+                "label": "Location",
+                "format": "text"
+              },
+              "posted_via": {
+                "label": "Posted Via",
+                "format": "text"
+              },
+              "salary": {
+                "label": "Salary",
+                "format": "text"
+              },
+              "date": {
+                "label": "Posted Date",
+                "format": "text"
+              },
+              "URL": {
+                "label": "Job Link",
+                "format": "link"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
