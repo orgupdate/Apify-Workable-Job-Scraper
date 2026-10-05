@@ -5,7 +5,23 @@ const { default: axios } = require("axios");
 Actor.main(async () => {
   try {
     // 1. Get input from Apify task / API
-    const input = (await Actor.getInput()) || {};
+    const rawInput = (await Actor.getInput()) || {};
+
+    const input = {
+
+      ...rawInput,
+
+      includeKeyword: rawInput.includeKeyword || "software engineer",
+
+      countryName: rawInput.countryName || "usa",
+
+      locationName: rawInput.locationName || "new york",
+
+      pagesToFetch: rawInput.pagesToFetch || 1,
+
+      datePosted: rawInput.datePosted || "all",
+
+    };
     console.log("Received input:", input);
 
     const allowedFields = [
